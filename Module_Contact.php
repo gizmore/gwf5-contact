@@ -13,6 +13,7 @@ final class Module_Contact extends GWF_Module
 	##############
 	public function onLoadLanguage() { return $this->loadLanguage('lang/contact'); }
 	public function getClasses() { return ['GWF_ContactMessage']; }
+	public function href_administrate_module() { return $this->getMethodHREF('Messages'); }
 	public function getConfig()
 	{
 		return array(

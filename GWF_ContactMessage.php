@@ -12,4 +12,15 @@ final class GWF_ContactMessage extends GDO
 			GDO_CreatedBy::make('cmsg_user_id'),
 		);
 	}
+	
+	/**
+	 * @return GWF_User
+	 */
+	public function getUser() { return $this->getValue('cmsg_user_id'); }
+	
+	public function getEmail() { return $this->getVar('cmsg_email'); }
+	public function getTitle() { return $this->getVar('cmsg_title'); }
+	public function getMessage() { return $this->getVar('cmsg_message'); }
+	
+	public function href_link_message() { return href('Contact', 'Message', '&id='.$this->getID()); }
 }

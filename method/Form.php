@@ -28,7 +28,24 @@ final class Contact_Form extends GWF_MethodForm
 	
 	public function sendMail(GWF_ContactMessage $message)
 	{
-		
+		foreach (GWF_User::withPermission('staff') as $user)
+		{
+			$staffname = $user->displayName();
+			$sitename = $this->getSiteName();
+			$email = htmlspecialchars($message->getEmail());
+			$username = $message->getUser()->displayName();
+			$title = htmlspecialchars($message->getTitle());
+			$text = htmlspecialchars($message->getMessage());
+			
+			$mail = new GWF_Mail();
+			$mail->setSender(GWF_BOT_EMAIL);
+			$mail->setSenderName(GWF_BOT_EMAIL);
+			$mail->setSubject(t('mail_subj_contact', [$sitename]));
+			$mail->setReply($message->getEmail());
+			$args = [$staffname, $sitename, $username, $email, $title, $text];
+			$mail->setBody(t('mail_body_contact', $args));
+			$mail->sendToUser($user);
+		}
 	}
 	
 }
