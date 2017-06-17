@@ -37,7 +37,7 @@ final class Module_Contact extends GWF_Module
 	{
 		if ($navbar->isLeft())
 		{
-			$navbar->addField(GDO_Button::make('link_contact')->href($this->getMethodHREF('Form')));
+			$navbar->addField(GDO_Link::make('link_contact')->href($this->getMethodHREF('Form')));
 		}
 	}
 
