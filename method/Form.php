@@ -23,7 +23,7 @@ final class Contact_Form extends GWF_MethodForm
 	{
 		$message = GWF_ContactMessage::blank($form->values())->insert();
 		$this->sendMail($message);
-		return GWF_Message::message('msg_contact_mail_sent')->add($this->renderPage());
+		return GWF_Message::message('msg_contact_mail_sent', [$this->getSiteName()])->add($this->renderPage());
 	}
 	
 	public function sendMail(GWF_ContactMessage $message)
