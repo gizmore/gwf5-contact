@@ -15,4 +15,9 @@ final class Contact_Messages extends GWF_MethodQueryTable
 			GDO_Button::make('link_message'),
 		);
 	}
+	
+	public function getQuery()
+	{
+		return $this->getGDO()->select('*');
+	}
 }
