@@ -7,7 +7,7 @@ $username = GWF_HTML::escape("$username <{$message->getEmail()}>");
 <md-card>
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline"><?php l('card_title_contact_message'); ?></span>
+      <span class="md-headline"><?php l('card_title_contact_message', [GWF5::instance()->getSiteName()]); ?></span>
       <span class="md-subhead"><?php lt($message->getCreatedAt()); ?></span>
     </md-card-title-text>
   </md-card-title>
