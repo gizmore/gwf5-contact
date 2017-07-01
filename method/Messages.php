@@ -1,7 +1,16 @@
 <?php
 final class Contact_Messages extends GWF_MethodQueryTable
 {
+	use GWF_MethodAdmin;
+	
+	public function getPermission() { return 'staff'; }
+	
 	public function getGDO() { return GWF_ContactMessage::table();  }
+	
+	public function execute()
+	{
+		return $this->renderNavBar('Contact')->add(parent::execute());
+	}
 	
 	public function getHeaders()
 	{
