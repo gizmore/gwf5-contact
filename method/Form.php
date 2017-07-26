@@ -1,6 +1,8 @@
 <?php
 final class Contact_Form extends GWF_MethodForm
 {
+    public function isUserRequired() { return false; }
+    
 	public function contactFields()
 	{
 		return ['cmsg_email', 'cmsg_title', 'cmsg_message'];
